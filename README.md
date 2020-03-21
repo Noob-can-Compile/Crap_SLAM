@@ -1,2 +1,2 @@
 # Crap_SLAM
-Implementation of Simultaneous Localization And Mapping(SLAM) with Visual Odometry.
+Implementation of Feature based Simultaneous Localization And Mapping(SLAM) using Oriented FAST & Rotated BRIEF(ORB) with Visual Odometry.
