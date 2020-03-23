@@ -12,14 +12,15 @@ fe = Extractor()
 
 def frames_per_motion(img):
     img = cv2.resize(img, (width, height))
-    kp, des, matches = fe.extract(img)
-    if matches is None:
-        return
-
-    for point in kp:
-        u,v = map(lambda x: int(round(x)), point.pt)
-        cv2.circle(img, (u,v), color = (0,255,0), radius = 1, thickness = 2)
+    matches = fe.extract(img)
     
+    print("%d matches" % (len(matches)))
+
+    for point1, point2 in matches:
+        u1,v1 = map(lambda x: int(round(x)), point1.pt)
+        u2,v2 = map(lambda x: int(round(x)), point2.pt)
+        cv2.circle(img, (u1,v1), color = (0,255,0), radius = 1, thickness = 2)
+        cv2.line(img, (u1,v1), (u2,v2), color = (255,0,0))
     disp.paint(img)
 
 if __name__ == "__main__":
