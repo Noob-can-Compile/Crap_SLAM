@@ -24,7 +24,7 @@ def frames_per_motion(img):
     disp.paint(img)
 
 if __name__ == "__main__":
-    cap = cv2.VideoCapture("videos/car4.mp4")
+    cap = cv2.VideoCapture("videos/car3.mp4")
 
     while cap.isOpened():
         ret, frame = cap.read()

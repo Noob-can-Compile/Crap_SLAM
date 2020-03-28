@@ -25,14 +25,13 @@ class Extractor(object):
                     ret.append((kp1, kp2))
         if len(ret) > 0:
             ret = np.array(ret)
-            print(ret.shape)
 
             model, inliers = ransac((ret[:,0],ret[:, 1]),
                                     FundamentalMatrixTransform,
                                     min_samples=8,
-                                    residual_threshold= 0.01, 
+                                    residual_threshold= 1, 
                                     max_trials= 100)
-            print(sum(inliers))
+            ret = ret[inliers]
 
         self.last = {'kps' : kps, 'des' : des}
         return ret
